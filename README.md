@@ -83,4 +83,4 @@ Redraw every 60 hertz (16.67ms) (more or less depending on performance/battery l
 
 Alternatively: Don't make a big rectangle map: only draw the active screen, and either:
 - every screen around it, so they can be swiped towards and already be loaded
-or - Draw the to-be-active screen on swipe action.
+- Draw the to-be-active screen on swipe action.
