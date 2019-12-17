@@ -46,10 +46,17 @@ Background	#6cfc6a	(will be ignored, for transparency!)
 
 Every number is a 240x240 screen.
 
-3 3 3 3 3 3
-4 1 2 2 2 2
-4
-4
+```
+-------------------------
+| 3 | 3 | 3 | 3 | 3 | 3 |
+-------------------------
+| 4 | 1 | 2 | 2 | 2 | 2 |
+-------------------------
+| 4 |
+-----
+| 4 |
+-----
+```
 
 When entering 3 and 4, fade in and show the battery and time on a top bar.
 When a notification comes in, automatically switch to 4 (and turn on the display if set).
