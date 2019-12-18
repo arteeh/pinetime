@@ -2,6 +2,13 @@
 
 My work on the softare for the PineTime smartwatch. Below are notes and design stuff I made for myself.
 
+![Analog clock mockup](mockup-clock-analog.png)
+![Digital clock mockup](mockup-clock-digital.png)
+![App menu mockup](mockup-appmenu.png)
+
+![General mockup](mockup.png)
+
+
 ## Links
 
 PNG to C bitmap converter: 
