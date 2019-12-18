@@ -8,6 +8,8 @@ My work on the softare for the PineTime smartwatch. Below are notes and design s
 
 ![General mockup](mockup.png)
 
+(The arrows indicate the screen that will be shown when swiped to that area)
+
 
 ## Links
 
@@ -22,7 +24,7 @@ https://github.com/adafruit/Adafruit-GFX-Library/blob/master/Adafruit_GFX.cpp
 - Battery
 - Bluetooth
 - Brightness
-- Loading
+- Loading (spinner)
 - Screen
 - Clock
 - Message (notification)
@@ -83,7 +85,7 @@ Every number is a 240x240 screen.
 When entering 3 and 4, fade in and show the battery and time on a top bar.
 When a notification comes in, automatically switch to 4 (and turn on the display if set).
 
-## "Apps" to build
+## App ideas
 
 - Weather (Temperature, humidity, etc.)
 - Clock (stopwatch, timer, alarm)
