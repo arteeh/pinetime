@@ -10,6 +10,17 @@ http://rinkydinkelectronics.com/t_imageconverter565.php
 Graphics library inspiration
 https://github.com/adafruit/Adafruit-GFX-Library/blob/master/Adafruit_GFX.cpp
 
+## Gnome icons to port
+
+Battery
+Bluetooth
+Brightness
+Loading
+Screen
+Clock
+Message (notification)
+
+
 ## Battery icon colors
 
 White		#ffffff
