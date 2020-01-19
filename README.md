@@ -105,13 +105,3 @@ When a notification comes in, automatically switch to 4 (and turn on the display
 - Customize watchfaces?
 - Notifications (On incoming notification, vibrate? Switch to notif screen?)
 
-## How animations will work
-
-Build a large image of all 'screens' and store in memory.
-Then grab the 240x240 part that will be drawn on the screen.
-On swipe, move the drawn part to the swiped direction.
-Redraw every 60 hertz (16.67ms) (more or less depending on performance/battery life)
-
-Alternatively: Don't make a big rectangle map: only draw the active screen, and either:
-- every screen around it, so they can be swiped towards and already be loaded
-- Draw the to-be-active screen on swipe action.
