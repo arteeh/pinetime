@@ -1,6 +1,10 @@
 
 # PineTimeOS
 
+![Analog clock mockup](design/mockup-clock-analog.png)
+![Digital clock mockup](design/mockup-clock-digital.png)
+![App menu mockup](design/mockup-appmenu.png)
+
 This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the GNOME Project, more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
 
 - [Koen's project running on RIOT, LittleVGL and NimBLE](https://github.com/bosmoment/PineTime-apps)
