@@ -1,9 +1,9 @@
 
 # PineTimeOS
 
-![Analog clock mockup](design/mockup-clock-analog.png)
-![Digital clock mockup](design/mockup-clock-digital.png)
-![App menu mockup](design/mockup-appmenu.png)
+![Analog clock mockup](design/mockup_clock_analog.png)
+![Digital clock mockup](design/mockup_clock_digital.png)
+![App menu mockup](design/mockup_appmenu.png)
 
 This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the GNOME Project, more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
 
@@ -60,14 +60,14 @@ Most apps described here are just ideas, and don't need to be built immediately.
 
 ### Home
 
-![Analog clock mockup](design/mockup-clock-analog.png)
-![Digital clock mockup](design/mockup-clock-digital.png)
+![Analog clock mockup](design/mockup_clock_analog.png)
+![Digital clock mockup](design/mockup_clock_digital.png)
 
 The main watchface. Gets shown on button press / on screen enable. Can be either of the two images above or implement a functionality to set the 'home app' at runtime (in Settings->Favourite apps).
 
 ### App menu
 
-![App menu mockup](design/mockup-appmenu.png)
+![App menu mockup](design/mockup_appmenu.png)
 
 Shows a 3x2 grid of app icons (and the title of the app, if there's space for that). If there are more than 6 apps, you can swipe right to see more apps. Make this 2x2 if the buttons are too small. LittleVGL: Maybe use lv_tabview for this? on swipe right event, move to next tab, on swipe left, move to previous tab. Hide the tab buttons using `lv_tabview_set_btns_hidden(tabview,  true);`
 
@@ -99,7 +99,9 @@ Settings are stored by storing variables in flash, so that the settings are not 
 
 Below is every useful setting I can think of.
 
-#### Brightness
+##### Brightness
+
+![Brightness setting mockup](design/mockup_settings_brightness.png)
 
 Front end:
 - On tap, increase the brightness (or set it to low if currently high)
@@ -132,18 +134,18 @@ void setBrightness(int brightness)
 - settingSetBrightness(int brightness) - This stores the brightness integer at a certain spot in flash so it can be retrieved later.
 - settingGetBrightness() - This reads the brightness setting from flash and returns it.
 
-#### Favourite apps
+##### Favourite apps
 
 This setting allows you to set which watchface is assigned as the default home 'app'. You can also set which app is favourite app 1, 2, 3 and 4 (see UI layout). These will then be shown in order if you swipe right from the home screen. Maybe also add an option to set how many favourite apps you want.
 
-#### Bluetooth
+##### Bluetooth
 
 This screen shows Bluetooth settings:
 - Connect to device (show pairing code and confirmation buttons here)
 - Disconnect from device
 - Turn bluetooth on/off
 
-#### Display
+##### Display
 
 This screen lets you choose between the following options:
 - Choose when the display turns on:
@@ -153,48 +155,40 @@ This screen lets you choose between the following options:
 	- Turn on the display on button press only
 - Time until the display goes back to sleep (options: off, 5s, 10s, 30s)
 
-#### Notifications
+##### Notifications
 
 This screen shows notification settings, if there is a notification feature.
 - Vibrate on incoming notification?
 - Switch to notification on incoming notification?
 - Turn on display on incoming notification?
 
-#### Reboot
+##### Reboot
 
 This screen shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
 
 ## Battery icon information
 
-### Colors used in icons
-
-Color | Hex
-------|-----
-White	| #ffffff
-Light grey| #e6e6e6
-Dark grey| #c0c0c0
-Orange| #f57900
-Dark orange| #a25000
-Red | #e01b24
-Dark red | #801b24
-Green | #
-Dark green | #
-Background | #6cfc6a (Is the designated 'transparent' color, will be skipped when drawing. See 'Drawing images')
-
-
 ### Images to use per battery life percentage
 
 Battery life | Icon | Icon when charging
 -------------|------|---------------------
-100 to 90 | battery100 | batterycharging100
-90 to 80 | battery90 | batterycharging90
-80 to 70 | battery80 | batterycharging80
-70 to 60 | battery70 | batterycharging70
-60 to 50 | battery60 | batterycharging60
-50 to 40 | battery50 | batterycharging50
-40 to 30 | battery40 | batterycharging40
-30 to 20 | battery30 | batterycharging30
-20 to 10 | battery20 | batterycharging20
-10 to 5 | battery10 | batterycharging10
-5 to 0 | battery5 | batterycharging5
+100 to 90 | os_battery_100 | os_batterycharging_100
+90 to 80 | os_battery_090 | os_batterycharging_090
+80 to 70 | os_battery_080 | os_batterycharging_080
+70 to 60 | os_battery_070 | os_batterycharging_070
+60 to 50 | os_battery_060 | os_batterycharging_060
+50 to 40 | os_battery_050 | os_batterycharging_050
+40 to 30 | os_battery_040 | os_batterycharging_040
+30 to 20 | os_battery_030 | os_batterycharging_030
+20 to 10 | os_battery_020 | os_batterycharging_020
+10 to 5 | os_battery_010 | os_batterycharging_010
+5 to 0 | os_battery_005 | os_batterycharging_005
+
+## Colors
+
+Color | Hex
+------|-----
+Text | #d1cbc9
+Text alt.| #e6e6e6
+Background | #6cfc6a (Is the designated 'transparent' color, will be skipped when drawing. See 'Drawing images'. Or just use the default?)
 
