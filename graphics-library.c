@@ -1,7 +1,6 @@
 /*
 This file contains pseudocode for a simple graphics library that does the following:
-- Keep a linked list of every element on the screen.
-- There's a linked list for every type of element (because they're in a different format)
+- Keep linked lists of every element on the screen. Every type of element has its own list (because the structs are a different format)
 - Draws every element on the screen using a drawPixel() function
 */
 

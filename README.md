@@ -188,7 +188,7 @@ Battery life | Icon | Icon when charging
 
 Color | Hex
 ------|-----
-Text | #d1cbc9
-Text alt.| #e6e6e6
-Background | #6cfc6a (Is the designated 'transparent' color, will be skipped when drawing. See 'Drawing images'. Or just use the default?)
+White | #e6e6e6
+Grey | #c0c0c0
+Green | #6cfc6a (Is the designated 'transparent' color, will be skipped when drawing. See 'Drawing images')
 
