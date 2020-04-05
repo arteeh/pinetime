@@ -1,28 +1,26 @@
 
 # PineTimeOS
 
-![Analog clock mockup](design/mockup_clock_analog.png)
 ![Digital clock mockup](design/mockup_clock_digital.png)
+![Analog clock mockup](design/mockup_clock_analog.png)
 ![App menu mockup](design/mockup_appmenu.png)
 
-This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the GNOME Project, more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
+This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
 
 - [Koen's project running on RIOT, LittleVGL and NimBLE](https://github.com/bosmoment/PineTime-apps)
 - [JF's project using FreeRTOS](https://github.com/JF002/Pinetime)
 
 I'm open to work with other firmware as well.
 
-
 ## Icons
 
-I'm providing LittleVGL-style bitmap .h files in the assets folder alongside their png's. In RIOT, these header files could also be distributed on a per-widget basis by placing them in /widgets/your_widget/include.
+I'm providing LittleVGL-style bitmap .h files in the assets folder alongside their png's.
 
 See [the LittleVGL documentation](https://docs.littlevgl.com/en/html/object-types/img.html) for how to draw images.
 
 To get transparency to work, set LV_COLOR_TRANSP in your lv_conf.h (in apps/your_app to the color 6cfc6a (I'm not sure how: replacing LV_COLOR_LIME with 0x6cfc6a did not work, it needs to be in a different format).
 
 If not using LittleVGL, you can write a function that grabs pixels from a bitmap and draws them using a drawPixel() function. See graphics-library.c for an example.
-
 
 ## UI Layout
 
@@ -60,10 +58,9 @@ Most apps described here are just ideas, and don't need to be built immediately.
 
 ### Home
 
-![Analog clock mockup](design/mockup_clock_analog.png)
 ![Digital clock mockup](design/mockup_clock_digital.png)
 
-The main watchface. Gets shown on button press / on screen enable. Can be either of the two images above or implement a functionality to set the 'home app' at runtime (in Settings->Favourite apps).
+The main watchface. Gets shown on button press / on screen enable. Above image is one example. Ideally the user can set their own watchface by selecting a 'home app' at runtime (in Settings->Favourite apps).
 
 ### App menu
 
@@ -77,7 +74,7 @@ Stopwatch, timer and alarm app.
 
 ### Music
 
-Control music playback of your phone.
+Control music playback of your phone through bluetooth.
 
 ### Weather
 
@@ -93,7 +90,9 @@ Count your steps. Make an estimation of how many miles/kilometres you have walke
 
 ### Settings
 
-This widget is used to customize your watch and connect to your phone with Bluetooth. The widget shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
+![Settings menu mockup](design/mockup_settings_full.png)
+
+This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
 
 Settings are stored by storing variables in flash, so that the settings are not lost on reboot. (Does RIOT have a feature for this?) You could also do without since smartwatches are very rarely rebooted, but it can be a bummer to turn on your watch after it died and you see all your favourite apps and settings set up wrong.
 
@@ -110,33 +109,6 @@ Front end:
 
 Back end:
 - On tap, call setBrightness(). The parameter you give it is (settingGetBrightness()+1) (or if it's 3, do -2).
-- This widget can uses the brightness.h icon
-
-Functions to implement:
-
-- setBrightness() - This changes the active brightness. Parameter 1 is low, 2 is mid and 3 is high. Also calls settingsSetBrightness to update the setting in flash.
-```c
-// Code for RIOT but the implementations are similar elsewhere. This should be in modules/hal/hal.c
-void setBrightness(int brightness)
-{
-	gpio_set(LCD_BACKLIGHT_LOW);
-	gpio_set(LCD_BACKLIGHT_MID);
-	gpio_set(LCD_BACKLIGHT_HIGH);
-	switch(brightness)
-	{
-		case 1: gpio_clear(LCD_BACKLIGHT_LOW); break;
-		case 2: gpio_clear(LCD_BACKLIGHT_MID); break;
-		case 3: gpio_clear(LCD_BACKLIGHT_HIGH); break;
-	}
-	settingSetBrightness(brightness);
-}
-```
-- settingSetBrightness(int brightness) - This stores the brightness integer at a certain spot in flash so it can be retrieved later.
-- settingGetBrightness() - This reads the brightness setting from flash and returns it.
-
-##### Favourite apps
-
-This setting allows you to set which watchface is assigned as the default home 'app'. You can also set which app is favourite app 1, 2, 3 and 4 (see UI layout). These will then be shown in order if you swipe right from the home screen. Maybe also add an option to set how many favourite apps you want.
 
 ##### Bluetooth
 
@@ -144,6 +116,17 @@ This screen shows Bluetooth settings:
 - Connect to device (show pairing code and confirmation buttons here)
 - Disconnect from device
 - Turn bluetooth on/off
+
+##### Favourite apps
+
+This setting allows you to set which watchface is assigned as the default home 'app'. You can also set which app is favourite app 1, 2, 3 and 4 (see UI layout). These will then be shown in order if you swipe right from the home screen. Maybe also add an option to set how many favourite apps you want.
+
+##### Notifications
+
+This screen shows notification settings, if there is a notification feature.
+- Vibrate on incoming notification?
+- Switch to notification on incoming notification?
+- Turn on display on incoming notification?
 
 ##### Display
 
@@ -155,14 +138,7 @@ This screen lets you choose between the following options:
 	- Turn on the display on button press only
 - Time until the display goes back to sleep (options: off, 5s, 10s, 30s)
 
-##### Notifications
-
-This screen shows notification settings, if there is a notification feature.
-- Vibrate on incoming notification?
-- Switch to notification on incoming notification?
-- Turn on display on incoming notification?
-
-##### Reboot
+##### Reset this device
 
 This screen shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
 
@@ -188,7 +164,7 @@ Battery life | Icon | Icon when charging
 
 Color | Hex
 ------|-----
-White | #e6e6e6
-Grey | #c0c0c0
-Green | #6cfc6a (Is the designated 'transparent' color, will be skipped when drawing. See 'Drawing images')
+Light grey, for text and icons | #e6e6e6
+Dark grey, used in some icons | #c0c0c0
+Background color, used for transparency | #6cfc6a
 
