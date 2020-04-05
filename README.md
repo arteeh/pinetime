@@ -59,8 +59,9 @@ Most apps described here are just ideas, and don't need to be built immediately.
 ### Home
 
 ![Digital clock mockup](design/mockup_clock_digital.png)
+![Analog clock mockup](design/mockup_clock_analog.png)
 
-The main watchface. Gets shown on button press / on screen enable. Above image is one example. Ideally the user can set their own watchface by selecting a 'home app' at runtime (in Settings->Favourite apps).
+The main watchface. Gets shown on button press / on screen enable. The above images are examples of what Home may look like. Ideally the user can set their own watchface by selecting a Home app at runtime (in Settings->Favourite apps).
 
 ### App menu
 
@@ -90,7 +91,8 @@ Count your steps. Make an estimation of how many miles/kilometres you have walke
 
 ### Settings
 
-![Settings menu mockup](design/mockup_settings_full.png)
+![Settings menu mockup - what's shown on the screen](design/mockup_settings_cut.png)
+![Settings menu mockup - all settings](design/mockup_settings_full.png)
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
 
