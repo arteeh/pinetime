@@ -92,7 +92,7 @@ Count your steps. Make an estimation of how many miles/kilometres you have walke
 ### Settings
 
 ![Settings menu mockup - what's shown on the screen](design/mockup_settings_cut.png)
-![Settings menu mockup - all settings](design/mockup_settings_full.png)
+![Settings menu mockup - all settings](design/mockup_settings.png)
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
 
