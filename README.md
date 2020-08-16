@@ -5,22 +5,15 @@
 ![Analog clock mockup](design/mockup-clock-analog.png)
 ![App menu mockup](design/mockup-appmenu.png)
 
-This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
-
-- [Koen's project running on RIOT, LittleVGL and NimBLE](https://github.com/bosmoment/PineTime-apps)
-- [JF's project using FreeRTOS](https://github.com/JF002/Pinetime)
-
-I'm open to work with other firmware as well.
+This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code of my own is included for now.
 
 ## Icons
 
-I'm providing LittleVGL-style bitmap .h files in the assets folder alongside their png's.
+I'm providing LVGL-style bitmap .h files in the assets folder alongside their png's.
 
-See [the LittleVGL documentation](https://docs.littlevgl.com/en/html/object-types/img.html) for how to draw images.
+See [the LVGL documentation](https://docs.lvgl.io/latest/en/html/widgets/img.html) for how to draw images.
 
 To get transparency to work, set LV_COLOR_TRANSP in your lv_conf.h (in apps/your_app to the color 6cfc6a (I'm not sure how: replacing LV_COLOR_LIME with 0x6cfc6a did not work, it needs to be in a different format).
-
-If not using LittleVGL, you can write a function that grabs pixels from a bitmap and draws them using a drawPixel() function. See graphics-library.c for an example.
 
 ## UI Layout
 
@@ -67,7 +60,7 @@ The main watchface. Gets shown on button press / on screen enable. The above ima
 
 ![App menu mockup](design/mockup-appmenu.png)
 
-Shows a 3x2 grid of app icons (and the title of the app, if there's space for that). If there are more than 6 apps, you can swipe right to see more apps. Make this 2x2 if the buttons are too small. LittleVGL: Maybe use lv_tabview for this? on swipe right event, move to next tab, on swipe left, move to previous tab. Hide the tab buttons using `lv_tabview_set_btns_hidden(tabview,  true);`
+Shows a 3x2 grid of app icons (and the title of the app, if there's space for that). If there are more than 6 apps, you can swipe right to see more apps. Make this 2x2 if the buttons are too small. LVGL: Maybe use lv_tabview for this? on swipe right event, move to next tab, on swipe left, move to previous tab. Hide the tab buttons using `lv_tabview_set_btns_hidden(tabview,  true);`
 
 ### Notifications
 
@@ -103,21 +96,15 @@ Count your steps. Make an estimation of how many miles/kilometres you have walke
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
 
-Settings are stored by storing variables in flash, so that the settings are not lost on reboot. (Does RIOT have a feature for this?) You could also do without since smartwatches are very rarely rebooted, but it can be a bummer to turn on your watch after it died and you see all your favourite apps and settings set up wrong.
+Settings are stored by placing variables in flash, so that the settings are not lost on reboot. You could also do without since smartwatches are very rarely rebooted, but it can be a bummer to turn on your watch after it died and you see all your favourite apps and settings set up wrong.
 
-Below is every useful setting I can think of.
+Below is every useful setting + its mockup that I can think of.
 
 ##### Brightness
 
 ![Brightness setting mockup](design/mockup-settings-brightness.png)
 
-Front end:
-- On tap, increase the brightness (or set it to low if currently high)
-- On button press, return to Settings
-- Draw some kind of visualization (maybe with the battery icon) to indicate the current brightness (and update it on press)
-
-Back end:
-- On tap, call setBrightness(). The parameter you give it is (settingGetBrightness()+1) (or if it's 3, do -2).
+Change the brightness of the screen. On tap, the brightness changes (LOW->MID, MID->HIGH, HIGH->LOW).
 
 ##### Bluetooth
 
@@ -145,11 +132,11 @@ This screen lets you choose between the following options:
 	- Turn on the display when holding the watch upwards, or on tap or button press.
 	- Turn on the display on tap or button press
 	- Turn on the display on button press only
-- Time until the display goes back to sleep (options: off, 5s, 10s, 30s)
+- Time until the display goes back to sleep (options: 5s, 10s, 30s, off)
 
 ##### Reset this device
 
-This screen shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
+This shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
 
 ## Battery icon information
 
