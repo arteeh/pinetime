@@ -1,9 +1,9 @@
 
 # PineTimeOS
 
-![Digital clock mockup](design/mockup_clock_digital.png)
-![Analog clock mockup](design/mockup_clock_analog.png)
-![App menu mockup](design/mockup_appmenu.png)
+![Digital clock mockup](design/mockup-clock-digital.png)
+![Analog clock mockup](design/mockup-clock-analog.png)
+![App menu mockup](design/mockup-appmenu.png)
 
 This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code is included for now. I want to build these ideas on other people's low-level/backend work like:
 
@@ -58,16 +58,23 @@ Most apps described here are just ideas, and don't need to be built immediately.
 
 ### Home
 
-![Digital clock mockup](design/mockup_clock_digital.png)
-![Analog clock mockup](design/mockup_clock_analog.png)
+![Digital clock mockup](design/mockup-clock-digital.png)
+![Analog clock mockup](design/mockup-clock-analog.png)
 
 The main watchface. Gets shown on button press / on screen enable. The above images are examples of what Home may look like. Ideally the user can set their own watchface by selecting a Home app at runtime (in Settings->Favourite apps).
 
 ### App menu
 
-![App menu mockup](design/mockup_appmenu.png)
+![App menu mockup](design/mockup-appmenu.png)
 
 Shows a 3x2 grid of app icons (and the title of the app, if there's space for that). If there are more than 6 apps, you can swipe right to see more apps. Make this 2x2 if the buttons are too small. LittleVGL: Maybe use lv_tabview for this? on swipe right event, move to next tab, on swipe left, move to previous tab. Hide the tab buttons using `lv_tabview_set_btns_hidden(tabview,  true);`
+
+### Notifications
+
+![Notifications mockup - what's shown on the screen](design/mockup-notifications-cut.png)
+![Notifications mockup - longer example](design/mockup-notifications.png)
+
+Swipe right from your home screen and you'll see your notifications. If there are more than can fit on the screen, you can scroll down to see the rest. Tap on a notification to instantly go to the relevant app.
 
 ### Clock
 
@@ -91,8 +98,8 @@ Count your steps. Make an estimation of how many miles/kilometres you have walke
 
 ### Settings
 
-![Settings menu mockup - what's shown on the screen](design/mockup_settings_cut.png)
-![Settings menu mockup - all settings](design/mockup_settings.png)
+![Settings menu mockup - what's shown on the screen](design/mockup-settings-cut.png)
+![Settings menu mockup - all settings](design/mockup-settings.png)
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list (similar to the current menu_tiles, except every item in the list has an icon if possible) of all the settings in which you can scroll up and down. 
 
@@ -102,7 +109,7 @@ Below is every useful setting I can think of.
 
 ##### Brightness
 
-![Brightness setting mockup](design/mockup_settings_brightness.png)
+![Brightness setting mockup](design/mockup-settings-brightness.png)
 
 Front end:
 - On tap, increase the brightness (or set it to low if currently high)
