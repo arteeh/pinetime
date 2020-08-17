@@ -1,6 +1,8 @@
 
 # PineTimeOS
 
+![Showcase animation of all mockups](design/showcase/PineTimeOS-UI.gif)
+
 ![Digital clock mockup](design/mockup-clock-digital.png)
 ![Analog clock mockup](design/mockup-clock-analog.png)
 ![App menu mockup](design/mockup-appmenu.png)
