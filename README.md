@@ -1,5 +1,5 @@
 
-# PineTimeOS
+# PineTime UI design proposal
 
 ![Showcase animation of all mockups](design/showcase/PineTimeOS-UI.gif)
 
