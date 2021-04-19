@@ -1,11 +1,13 @@
 
 # PineTime UI design proposal
 
-![Showcase animation of all mockups](design/showcase/PineTimeOS-UI.gif)
-
 ![Digital clock mockup](design/mockup-clock-digital.png)
 ![Analog clock mockup](design/mockup-clock-analog.png)
 ![App menu mockup](design/mockup-appmenu.png)
+
+![Showcase animation of all mockups](design/showcase/PineTimeOS-UI.gif)
+
+[Figma demo](https://www.figma.com/proto/Emex60mfx1WePSyYDGaAoB/PineTime-UI-Proposal?node-id=1%3A7&scaling=min-zoom)
 
 This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code of my own is included for now.
 
