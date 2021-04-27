@@ -9,17 +9,13 @@
 
 [Figma demo](https://www.figma.com/proto/Emex60mfx1WePSyYDGaAoB/PineTime-UI-Proposal?node-id=1%3A7&scaling=min-zoom)
 
-This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme). No code of my own is included for now.
+This repository contains designs and assets for a UI for the PineTime. The icons I use for apps and symbols are taken from the [GNOME Project](https://gnome.org), more specifically the [Adwaita theme](https://github.com/GNOME/adwaita-icon-theme).
 
 ## Icons
 
-I'm providing LVGL-style bitmap .h files in the assets folder alongside their png's.
+I'm providing LVGL-style bitmap .c files in the assets folder alongside their original images. See [the LVGL documentation](https://docs.lvgl.io/latest/en/html/widgets/img.html) for how to draw images. To get transparency to work, set LV_COLOR_TRANSP in your lv_conf.h (in apps/your_app to the color 6cfc6a.
 
-See [the LVGL documentation](https://docs.lvgl.io/latest/en/html/widgets/img.html) for how to draw images.
-
-To get transparency to work, set LV_COLOR_TRANSP in your lv_conf.h (in apps/your_app to the color 6cfc6a (I'm not sure how: replacing LV_COLOR_LIME with 0x6cfc6a did not work, it needs to be in a different format).
-
-## UI Layout
+## UI navigation
 
 1. Main watchface
 2. Favourite apps 1, 2, 3 and 4
@@ -49,9 +45,7 @@ Here's a WIP mockup of what the whole UI should look like. Note that this overvi
 
 ## Apps
 
-Every app except Home shows the time in digital format on the top left, and the battery and bluetooth icons on the top right. These stay even when swiping to other apps. Home only shows the battery (Or at least on the watchfaces I made. Other watchfaces can choose to draw whatever they want.)
-
-Most apps described here are just ideas, and don't need to be built immediately.
+Every app except Home shows the time in digital format on the top left, and the battery and bluetooth icons on the top right. These stay even when swiping to other apps. Home only shows the battery (or at least on the watchfaces I made. Other watchfaces can choose to draw whatever they want).
 
 ### Home
 
@@ -141,24 +135,6 @@ This screen lets you choose between the following options:
 ##### Reset this device
 
 This shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
-
-## Battery icon information
-
-### Images to use per battery life percentage
-
-Battery life | Icon | Icon when charging
--------------|------|---------------------
-100 to 90 | os_battery_100 | os_batterycharging_100
-90 to 80 | os_battery_090 | os_batterycharging_090
-80 to 70 | os_battery_080 | os_batterycharging_080
-70 to 60 | os_battery_070 | os_batterycharging_070
-60 to 50 | os_battery_060 | os_batterycharging_060
-50 to 40 | os_battery_050 | os_batterycharging_050
-40 to 30 | os_battery_040 | os_batterycharging_040
-30 to 20 | os_battery_030 | os_batterycharging_030
-20 to 10 | os_battery_020 | os_batterycharging_020
-10 to 5 | os_battery_010 | os_batterycharging_010
-5 to 0 | os_battery_005 | os_batterycharging_005
 
 ## Colors
 
