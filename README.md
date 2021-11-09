@@ -1,21 +1,19 @@
 
 # Smartwatch UI design proposal
 
-![Digital clock mockup](design/mockup-clock-digital.png)
-![Analog clock mockup](design/mockup-clock-analog.png)
-![App menu mockup](design/mockup-appmenu.png)
+![Digital clock mockup](drawings/digital.png)
+![Analog clock mockup](drawings/analog.png)  
+![App menu mockup](drawings/appgrid.png)
 
-![Showcase animation of all mockups](design/showcase/PineTimeOS-UI.gif)
+![Showcase animation of all mockups](drawings/showcase/PineTimeOS-UI.gif)
 
 [Try the above demo here](https://www.figma.com/proto/Emex60mfx1WePSyYDGaAoB/PineTime-UI-Proposal?node-id=1%3A7&scaling=min-zoom)
 
 This repository contains designs and assets for a GNOME smartwatch. The icons I use for apps and symbols are taken from the [Adwaita icon theme](https://gitlab.gnome.org/GNOME/adwaita-icon-theme).
 
-I'm providing LVGL-style bitmap .c files in the assets folder alongside their original images. See [the LVGL documentation](https://docs.lvgl.io/latest/en/html/widgets/img.html) for information on how to draw images. For transparency, set LV_COLOR_TRANSP in your lv_conf.h to the color #6cfc6a.
-
 ## UI navigation
 
-![General mockup](design/mockup.png)
+![General mockup](drawings/mockup.png)
 
 Here's a mockup of what the whole UI should look like. This image shows which screen appears when you swipe somewhere. For example, when you swipe up from Home, you'll go down and find yourself in the app grid.
 
@@ -23,8 +21,8 @@ Every app except Home shows the time in digital format on the top left, and the 
 
 ### Home
 
-![Digital clock mockup](design/mockup-clock-digital.png)
-![Analog clock mockup](design/mockup-clock-analog.png)
+![Digital clock mockup](drawings/mockup-clock-digital.png)
+![Analog clock mockup](drawings/mockup-clock-analog.png)
 
 The main watchface. Gets shown on button press / on screen enable. The above images are examples of what Home may look like. Ideally the user can set their own watchface by selecting a Home app at runtime (in Settings->Favourite apps).
 
@@ -60,8 +58,8 @@ Show information of the heartbeat sensor. Maybe draw a nice graph of the past ho
 Count your steps. Make an estimation of how many miles/kilometres you have walked/ran. Has a button to reset the counter.
 
 **Settings**  
-![Settings menu mockup - what's shown on the screen](design/mockup-settings-cut.png)
-![Settings menu mockup - all settings](design/mockup-settings.png)
+![Settings menu mockup - what's shown on the screen](drawings/mockup-settings-cut.png)
+![Settings menu mockup - all settings](drawings/mockup-settings.png)
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list of all the settings in which you can scroll up and down.
 
@@ -71,7 +69,7 @@ Below is every useful setting + its mockup that I can think of.
 
 *Brightness*
 
-![Brightness setting mockup](design/mockup-settings-brightness.png)
+![Brightness setting mockup](drawings/mockup-settings-brightness.png)
 
 Change the brightness of the screen. On tap, the brightness changes (LOW->MID, MID->HIGH, HIGH->LOW).
 
@@ -106,4 +104,22 @@ This screen lets you choose between the following options:
 *Restart this device*
 
 This shows a confirmation dialog on whether the user wants to reboot the device. When 'yes' is pressed, reboot the device. On 'no', go back to the settings screen.
+
+## Icons
+
+I'm providing LVGL-style bitmap .c files in the assets folder alongside their original images. See [the LVGL documentation](https://docs.lvgl.io/latest/en/html/widgets/img.html) for information on how to draw images. For transparency, set LV_COLOR_TRANSP in your lv_conf.h to the color #6cfc6a.
+
+To prepare a GNOME SVG icon for use in LVGL, follow these steps:
+- Open the .svg file in GIMP. App icons should be set to 64x64, system icons should be 32x32.
+- In GIMP, go to Layer > Transparency > Threshold Alpha, set the slider to a spot to look good
+- Add a layer, fill it with #6cfc6a and drag the slider below the icon (to do this faster in bulk, create the layer once, copy it and paste it to all other icons)
+- Export the image as a .png file
+- Convert the image(s) to C code using [LVGL's image converter](https://lvgl.io/tools/imageconverter). For app icons set 'Color format' to "Indexed 16 colors". For system icons set it to "Indexed 4 colors".
+
+
+## Colors
+
+Notification background color: #404040
+Notification body text color: #	
+LVGL transparency color for icons: #6cfc6a
 
