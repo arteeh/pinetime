@@ -111,7 +111,7 @@ I'm providing LVGL-style bitmap .c files in the assets folder alongside their or
 
 To prepare a GNOME SVG icon for use in LVGL, follow these steps:
 - Open the .svg file in GIMP. App icons should be set to 64x64, system icons should be 32x32.
-- In GIMP, go to Layer > Transparency > Threshold Alpha, set the slider to a spot to look good
+- In GIMP, go to Layer > Transparency > Threshold Alpha, set the slider to 0.6
 - Add a layer, fill it with #6cfc6a and drag the slider below the icon (to do this faster in bulk, create the layer once, copy it and paste it to all other icons)
 - Export the image as a .png file
 - Convert the image(s) to C code using [LVGL's image converter](https://lvgl.io/tools/imageconverter). For app icons set 'Color format' to "Indexed 16 colors". For system icons set it to "Indexed 4 colors".
