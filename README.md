@@ -10,14 +10,14 @@ Unless screen space is extremely scarce, screens will have a Top Bar which shows
 
 ### Home
 
-![Clock](Figma Exports/Clock.png)
+![Clock](Figma/Clock.png)
 
 The main watchface. Gets shown on button press / screen enable. This is the default watch face, but other watchfaces can be installed.
 
 ### App Grid
 
-![App Grid - Page 1](Figma Exports/App Grid - Page 1.png)
-![App Grid - Page 2](Figma Exports/App Grid - Page 2.png)
+![App Grid - Page 1](Figma/App-Grid-Page-1.png)
+![App Grid - Page 2](Figma/App-Grid-Page-2.png)
 
 Shows a 3x2 grid of app icons (and the title of the app, if there's space for that). If there are more than 6 apps, you can swipe right to see more apps.
 
@@ -29,7 +29,7 @@ To the left of your home screen you'll see your notifications. If there are more
 
 ### Calculator
 
-![Calculator App](Figma Exports/Calculator App.png)
+![Calculator App](Figma/Calculator-App.png)
 
 A simple calculator app. It should preferably be easy to calculate tips.
 
@@ -51,7 +51,7 @@ Read your heartbeat, step count and sleep tracking information. In text or possi
 
 ### Settings
 
-![Settings App](Figma Exports/Settings App.png)
+![Settings App](Figma/Settings-App.png)
 
 This app is used to customize your watch and connect to your phone with Bluetooth. The app shows a list of all the settings in which you can scroll up and down.
 
