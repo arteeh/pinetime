@@ -29,7 +29,7 @@ To the left of your home screen you'll see your notifications. If there are more
 
 ### Calculator
 
-![Calculator App](Figma/Calculator-App.png)
+![Calculator App](Figma/Calculator-App-Favorited.png)
 
 A simple calculator app. It should preferably be easy to calculate tips.
 
